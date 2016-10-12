@@ -1,4 +1,4 @@
-package co.grandcircus.vitamenu;
+package co.grandcircus.vitamenu.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -33,6 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		logger.info("/-> home.jsp");
 		return "home";
 	}
 	
