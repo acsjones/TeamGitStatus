@@ -12,9 +12,10 @@
 <body>
 <h1>
 	Welcome. This is the homepage where we will introduce VitaMenu. Click the link to start VitaMenu.
+	
 </h1>
-
-<a href="<c:url value="/vitamins"/>">VitaMenu Start</a>
+Disclaimer: We are not doctors.
+<p><a href="<c:url value="/vitamins"/>">VitaMenu Start</a></p>
 
 </body>
 </html>

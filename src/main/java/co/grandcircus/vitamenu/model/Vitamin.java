@@ -6,6 +6,19 @@ public class Vitamin {
 	private String vitamin_name;
 	private Integer vitamin_key;
 	private String vitamin_benefits;
+	private String vitamin_defiency;
+	/**
+	 * @return the vitamin_defiency
+	 */
+	public String getVitamin_defiency() {
+		return vitamin_defiency;
+	}
+	/**
+	 * @param vitamin_defiency the vitamin_defiency to set
+	 */
+	public void setVitamin_defiency(String vitamin_defiency) {
+		this.vitamin_defiency = vitamin_defiency;
+	}
 	private String food_1;
 	private String food_2;
 	private String food_3;
@@ -102,9 +115,10 @@ public class Vitamin {
 		this.vitamin_name = vitamin_name;
 		this.vitamin_key = vitamin_key;
 	}
-	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_name, String food_1, String food_2,  String food_3) {
+	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_defiency, String vitamin_name, String food_1, String food_2,  String food_3) {
 		this.vitamin_key = vitamin_key;
 		this.vitamin_benefits = vitamin_benefits;
+		this.vitamin_defiency = vitamin_defiency;
 		this.vitamin_name = vitamin_name;
 		this.vitamin_letter = vitamin_letter;
 		this.food_1 = food_1;
