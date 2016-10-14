@@ -31,7 +31,7 @@ public class VitaminDaoJdbcImpI implements VitaminDao {
 
 	@Override
 	public List<Vitamin> getAllVitamins() {
-		String sql = "SELECT * FROM vitamenu.vitamin_info";
+		String sql = "SELECT * FROM ebdb.vitamenu2";
 		try (Connection connection = connectionFactory.getConnection();
 				Statement statement = connection.prepareStatement(sql)) {
 			ResultSet result = statement.executeQuery(sql);
@@ -60,7 +60,7 @@ public class VitaminDaoJdbcImpI implements VitaminDao {
 
 	@Override
 	public Vitamin getVitamin(int vitamin_key) throws NotFoundException {
-		String sql = "SELECT * FROM vitamenu.vitamin_info WHERE vitamin_key = ?";
+		String sql = "SELECT * FROM ebdb.vitamenu2 WHERE vitamin_key = ?";
 		try (Connection connection = connectionFactory.getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setInt(1, vitamin_key);
@@ -71,11 +71,13 @@ public class VitaminDaoJdbcImpI implements VitaminDao {
 				String vitamin_benefits = result.getString("vitamin_benefits");
 				String vitamin_name = result.getString("vitamin_name");
 				String vitamin_letter = result.getString("vitamin_letter");
-				String food1 = result.getString("food1");
-				String food2 = result.getString("food2");
-				String food3 = result.getString("food3");
 
-				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name, food1, food2, food3);
+				String food_1 = result.getString("food_1");
+				String food_2 = result.getString("food_2");
+				String food_3 = result.getString("food_3");
+
+				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name,food_1,food_2,food_3);
+
 			} else {
 				throw new NotFoundException("No such vitamin.");
 			}

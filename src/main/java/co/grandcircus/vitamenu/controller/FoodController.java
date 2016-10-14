@@ -1,6 +1,8 @@
 package co.grandcircus.vitamenu.controller;
 
+
 import java.io.UnsupportedEncodingException;
+
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -24,10 +26,11 @@ public class FoodController {
 	private FoodService foodservice;
 
 	@RequestMapping("/food")
-	public String home(Locale locale, Model model, @RequestParam("q") String q) throws UnsupportedEncodingException {
+        public String home(Locale locale, Model model, @RequestParam("q") String q) throws UnsupportedEncodingException {
 		model.addAttribute("foodList", foodservice.getCurrentRecipe(q));
-		logger.info("/food -> food.jsp");
-		return "food";
+		logger.info("/food -> recipe-list.jsp");
+		return "recipe-list";
+
 	}
 
 }

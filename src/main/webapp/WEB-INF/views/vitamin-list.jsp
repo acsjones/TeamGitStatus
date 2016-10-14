@@ -11,8 +11,21 @@
 <%@ include file="parts/head.jsp"%>
 </head>
 <body>
-	<div class="nav">
-		<a href="<c:url value="/"/>">Home</a>
+
+	
+
+<div class="nav">
+	<a href="<c:url value="/"/>">Home</a>
+
+</div>
+<h1>
+	Choose your Vitamin!
+</h1>
+
+
+<table>
+
+	
 		
 	</div>
 	<h1> All the Vitamins Choose your Vitamin!</h1>

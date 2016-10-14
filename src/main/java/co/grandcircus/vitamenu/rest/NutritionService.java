@@ -23,7 +23,7 @@ public class NutritionService {
 	}
 
 	public ArrayList<Nutrition> getNutritionAt(String key) {
-		String url = "https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=[11efd554]&appKey=" + key;
+		String url = "https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=11efd554&appKey=" + key;
 
 		try (BufferedReader reader = HttpHelper.doGet(url)) {
 			if (reader == null) {
@@ -31,14 +31,15 @@ public class NutritionService {
 			}
 
 			JsonElement root = new JsonParser().parse(reader);
-			JsonArray nutritions = root.getAsJsonObject().get("fields").getAsJsonArray();
-
+			JsonArray nutritions = root.getAsJsonObject().get("hits").getAsJsonArray();
+			
 			ArrayList<Nutrition> nutritionList = new ArrayList<Nutrition>();
 
 			for (int i = 0; i < nutritions.size(); i++) {
 
 				Nutrition nutrition = new Nutrition();
-				nutrition.setName(nutritions.get(i).getAsJsonObject().get("item_name").getAsString());
+				JsonElement fields = nutritions.getAsJsonObject().get("fields");
+				nutrition.setName(fields.getAsJsonObject().get("item_name").getAsString());
 				nutrition.setCalories(nutritions.get(i).getAsJsonObject().get("Cnf_calories").getAsString());
 				nutrition.setTotal_fat(nutritions.get(i).getAsJsonObject().get("Cnf_total_fat").getAsString());
 				nutritionList.add(nutrition);

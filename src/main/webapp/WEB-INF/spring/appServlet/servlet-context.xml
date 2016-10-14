@@ -7,6 +7,19 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<beans:property name="ignoreResourceNotFound" value="true"/>
+		<beans:property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <beans:property name="searchSystemEnvironment" value="true" />
+		<beans:property name="locations">
+			<beans:list>
+				<beans:value>classpath:jdbc.properties</beans:value>
+				<beans:value>classpath:local.properties</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->

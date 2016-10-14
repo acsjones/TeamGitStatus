@@ -14,30 +14,30 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class JdbcConnectionFactory {
-	
-	private static final Logger logger = LoggerFactory.getLogger(JdbcConnectionFactory.class);
-	
-	private String driverClass = "com.mysql.jdbc.Driver";
-	
 
-		@Value("jdbc:mysql://localhost:3307/vitamenu")
+	private static final Logger logger = LoggerFactory.getLogger(JdbcConnectionFactory.class);
+
+	private String driverClass = "com.mysql.jdbc.Driver";
+
+	@Value("${db.url}")
 	private String dbUrl;
-	
-	@Value("root")
+
+	@Value("${db.username}")
 	private String username;
-	
-	@Value("pranavi")
-    private String password;
-	
+
+	@Value("${db.password}")
+	private String password;
+
 	public Connection getConnection() {
 		try {
 			boolean passwordPresent = password != null & !password.isEmpty();
-			logger.info("DB Connection. url:" + dbUrl + " user:" + username + "password:" + ( passwordPresent ? "present" : "ABSENT!" ));
-			
-			Class.forName(driverClass); 
-		    return DriverManager.getConnection(dbUrl, username, password);
+			logger.info("DB Connection. url:" + dbUrl + " user:" + username + "password:"
+					+ (passwordPresent ? "present" : "ABSENT!"));
+
+			Class.forName(driverClass);
+			return DriverManager.getConnection(dbUrl, username, password);
 		} catch (SQLException | ClassNotFoundException ex) {
-		    throw new RuntimeException("Connection Failure", ex);
+			throw new RuntimeException("Connection Failure", ex);
 		}
 	}
 

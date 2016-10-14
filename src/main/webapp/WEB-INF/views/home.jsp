@@ -11,11 +11,11 @@
 </head>
 <body>
 <h1>
-	Welcome. This is the homepage where we will introduce VitaMenu. Click Enter to start VitaMenu.
+	Welcome. This is the homepage where we will introduce VitaMenu. Click the link to start VitaMenu.
 </h1>
 
 <a href="<c:url value="/vitamins"/>">VitaMenu Start</a><br>
-
+<a href="<c:url value="/nutrition"/>">Nutrition</a><br>
 <div>
       <label>Enter item</label>
 		<input type="text" name="item" value="${nutrition.nutritionList}"/>

@@ -5,6 +5,10 @@ public class Nutrition {
 	private String name;
 	private String calories;
 	private String total_fat;
+	
+	
+	
+	
 	public String getName() {
 		return name;
 	}

@@ -13,20 +13,19 @@
 <body>
 <div class="nav">
 	<a href="<c:url value="/vitamins"/>">Back</a>
+		<a href="<c:url value="/food"/>">Food</a>
 </div>
 <h1>
 Vitamin ${ vitamin.vitamin_letter }
 </h1>
-${ vitamin.vitamin_name }
+Also known as ${ vitamin.vitamin_name }
 <form method="post">
 	<div>
 		<label>${ vitamin.vitamin_benefits }</label><br>
 		<h2>Food Items list</h2>
-		<a href="<c:url value="/food?q=${vitamin.food1}"/>"><label>${ vitamin.food1 }</label></a>
-		<a href="<c:url value="/food?q=${vitamin.food2}"/>"><label>${ vitamin.food2 }</label></a>
-		<a href="<c:url value="/food?q=${vitamin.food3}"/>"><label>${ vitamin.food3 }</label></a>
-		
-		
+		<a href="<c:url value="/food?q=${vitamin.food_1}"/>"><label>${ vitamin.food_1 }</label></a>
+		<a href="<c:url value="/food?q=${vitamin.food_2}"/>"><label>${ vitamin.food_2 }</label></a>
+		<a href="<c:url value="/food?q=${vitamin.food_3}"/>"><label>${ vitamin.food_3 }</label></a>
 	</div>
 	
 </form>
