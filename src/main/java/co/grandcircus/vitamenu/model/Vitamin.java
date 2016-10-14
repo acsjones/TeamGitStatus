@@ -7,6 +7,20 @@ public class Vitamin {
 	private Integer vitamin_key;
 	private String vitamin_benefits;
 	private String food_1;
+	private String food_2;
+	private String food_3;
+	public String getFood_2() {
+		return food_2;
+	}
+	public void setFood_2(String food_2) {
+		this.food_2 = food_2;
+	}
+	public String getFood_3() {
+		return food_3;
+	}
+	public void setFood_3(String food_3) {
+		this.food_3 = food_3;
+	}
 	private String recipe;
 	/**
 	 * @return the recipe
@@ -88,12 +102,14 @@ public class Vitamin {
 		this.vitamin_name = vitamin_name;
 		this.vitamin_key = vitamin_key;
 	}
-	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_name, String food_1) {
+	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_name, String food_1, String food_2,  String food_3) {
 		this.vitamin_key = vitamin_key;
 		this.vitamin_benefits = vitamin_benefits;
 		this.vitamin_name = vitamin_name;
 		this.vitamin_letter = vitamin_letter;
 		this.food_1 = food_1;
+		this.food_2 = food_2;
+		this.food_3 = food_3;
 	}
 	public Vitamin() {
 		// TODO Auto-generated constructor stub

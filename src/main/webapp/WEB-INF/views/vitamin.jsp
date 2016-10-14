@@ -25,6 +25,8 @@ Also known as ${ vitamin.vitamin_name }
 	</div>
 	<h2>Foods</h2>
 <label><a href="<c:url value="/food?q=${vitamin.food_1 }"/>">${ vitamin.food_1 }</a></label>
+<label><a href="<c:url value="/food?q=${vitamin.food_2 }"/>">${ vitamin.food_2 }</a></label>
+<label><a href="<c:url value="/food?q=${vitamin.food_3 }"/>">${ vitamin.food_3 }</a></label>
 </form>
 
 </body>

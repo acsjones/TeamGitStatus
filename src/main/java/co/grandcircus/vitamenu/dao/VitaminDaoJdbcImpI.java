@@ -71,8 +71,10 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 				String vitamin_name = result.getString("vitamin_name");
 				String vitamin_letter = result.getString("vitamin_letter");
 				String food_1 = result.getString("food_1");
+				String food_2 = result.getString("food_2");
+				String food_3 = result.getString("food_3");
 
-				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name, food_1);
+				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name, food_1, food_2, food_3);
 			} else {
 				throw new NotFoundException("No such vitamin.");
 			}
