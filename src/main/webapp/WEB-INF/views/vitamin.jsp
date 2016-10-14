@@ -12,26 +12,24 @@
 </head>
 <body>
 <div class="nav">
-	<a href="<c:url value="/"/>">Home</a>
-	<a href="<c:url value="/vitamin"/>">Back to Movies List</a>
+	<a href="<c:url value="/vitamins"/>">Back</a>
 </div>
 <h1>
-	Vitamin: ${ vitamin.vitaminLetter }
+Vitamin ${ vitamin.vitamin_letter }
 </h1>
-
+${ vitamin.vitamin_name }
 <form method="post">
 	<div>
-		<label>VitaminLetter</label>
-		<input type="text" name="letter" value="${vitamin.vitaminLetter}"/>
+		<label>${ vitamin.vitamin_benefits }</label><br>
+		<h2>Food Items list</h2>
+		<a href="<c:url value="/food?q=${vitamin.food1}"/>"><label>${ vitamin.food1 }</label></a>
+		<a href="<c:url value="/food?q=${vitamin.food2}"/>"><label>${ vitamin.food2 }</label></a>
+		<a href="<c:url value="/food?q=${vitamin.food3}"/>"><label>${ vitamin.food3 }</label></a>
+		
+		
 	</div>
-	<div>
-		<label>recIntake</label>
-		<input type="text" name="intake" value="${vitamin.recIntake}"/>
-	</div>
-	<button type="submit">Save Changes</button>
+	
 </form>
-
-
 
 </body>
 </html>

@@ -2,12 +2,21 @@ package co.grandcircus.vitamenu.dao;
 
 import java.util.List;
 
+
+import co.grandcircus.vitamenu.exception.NotFoundException;
+
 import co.grandcircus.vitamenu.model.Vitamin;
 
 public interface VitaminDao {
 
-	List<Vitamin> getAllVitamins();
+
 	
-	List<Vitamin> getAllVitaminsSortedBy(String sort) throws IllegalArgumentException;
+	public List<Vitamin> getAllVitamins();
+	
+	public List<Vitamin> getAllVitaminsSortedBy(String sort) throws IllegalArgumentException;
+	
+	Vitamin getVitamin(int vitamin_key) throws NotFoundException;
+
+
 
 }

@@ -10,24 +10,23 @@
 	<div class="nav">
 		<a href="<c:url value="/"/>">Home</a>
 	</div>
-	<h1>Food</h1>
+	<h1>Nutrition</h1>
 
 
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Title</th>
-				<th>Source</th>
-				<th>Image</th>
+				<th>Name</th>
+				<th>Calories</th>
+				<th>Total Fat</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="food" items="${foodList}">
+			<c:forEach var="nutrition" items="${nutritionList}">
 				<tr>
-					<td><c:out value="${ food.title}" /></td>
-					<td><a href="<c:url value="${ food.source }"/>">${ food.title}</a></td>
-					<td> <img src="${ food.image }" /></td>
-					
+					<td><c:out value="${ nutrition.name}" /></td>
+					<td><c:out value="${ nutrition.calories}" /></td>
+					<td><c:out value="${ nutrition.total_fat}" /></td>
 
 				</tr>
 			</c:forEach>

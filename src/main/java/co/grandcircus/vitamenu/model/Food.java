@@ -3,8 +3,15 @@ package co.grandcircus.vitamenu.model;
 public class Food {
 private String title;
 private String image;
+private String source;
 
 
+public String getSource() {
+	return source;
+}
+public void setSource(String source) {
+	this.source = source;
+}
 public String getTitle() {
 	return title;
 }
