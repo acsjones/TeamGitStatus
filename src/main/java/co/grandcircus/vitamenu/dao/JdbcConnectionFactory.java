@@ -19,13 +19,13 @@ public class JdbcConnectionFactory {
 	
 	private String driverClass = "com.mysql.jdbc.Driver";
 	
-	@Value("jdbc:mysql://localhost:3306/vitamenu")
+	@Value("${db.url}")
 	private String dbUrl;
 	
-	@Value("root")
+	@Value("${db.username}")
 	private String username;
 	
-	@Value("password")
+	@Value("${db.password}")
 	private String password;
 	
 	public Connection getConnection() {

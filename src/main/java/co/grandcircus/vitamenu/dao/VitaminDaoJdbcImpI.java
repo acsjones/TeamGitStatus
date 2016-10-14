@@ -31,7 +31,7 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 
 	@Override
 	public List<Vitamin> getAllVitamins() {
-		String sql = "SELECT * FROM vitamenu.vitamin_info";
+		String sql = "SELECT * FROM ebdb.vitamenu2";
 		try (Connection connection = connectionFactory.getConnection();
 				Statement statement = connection.prepareStatement(sql)) {
 			ResultSet result = statement.executeQuery(sql);
@@ -60,7 +60,7 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 
 	@Override
 	public Vitamin getVitamin(int vitamin_key) throws NotFoundException {
-		String sql = "SELECT * FROM vitamenu.vitamin_info WHERE vitamin_key = ?";
+		String sql = "SELECT * FROM ebdb.vitamenu2 WHERE vitamin_key = ?";
 		try (Connection connection = connectionFactory.getConnection();
 				PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setInt(1, vitamin_key);
