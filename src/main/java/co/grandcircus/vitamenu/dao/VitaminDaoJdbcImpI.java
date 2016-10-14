@@ -70,10 +70,11 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 				String vitamin_benefits = result.getString("vitamin_benefits");
 				String vitamin_name = result.getString("vitamin_name");
 				String vitamin_letter = result.getString("vitamin_letter");
+				String food_1 = result.getString("food_1");
 
-				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name);
+				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_name, food_1);
 			} else {
-				throw new NotFoundException("No such movie.");
+				throw new NotFoundException("No such vitamin.");
 			}
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);

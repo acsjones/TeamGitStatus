@@ -13,6 +13,7 @@
 <body>
 <div class="nav">
 	<a href="<c:url value="/"/>">Home</a>
+
 </div>
 <h1>
 	Choose your Vitamin!

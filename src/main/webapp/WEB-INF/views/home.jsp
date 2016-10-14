@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>
-	Welcome. This is the homepage where we will introduce VitaMenu. Click Enter to start VitaMenu.
+	Welcome. This is the homepage where we will introduce VitaMenu. Click the link to start VitaMenu.
 </h1>
 
 <a href="<c:url value="/vitamins"/>">VitaMenu Start</a>

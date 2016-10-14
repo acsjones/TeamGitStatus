@@ -6,6 +6,33 @@ public class Vitamin {
 	private String vitamin_name;
 	private Integer vitamin_key;
 	private String vitamin_benefits;
+	private String food_1;
+	private String recipe;
+	/**
+	 * @return the recipe
+	 */
+	public String getRecipe() {
+		return recipe;
+	}
+	/**
+	 * @param recipe the recipe to set
+	 */
+	public void setRecipe(String recipe) {
+		this.recipe = recipe;
+	}
+	/**
+	 * @return the food_1
+	 */
+	public String getFood_1() {
+		return food_1;
+	}
+	/**
+	 * @param food_1 the food_1 to set
+	 */
+	public void setFood_1(String food_1) {
+		this.food_1 = food_1;
+	}
+
 	/**
 	 * @return the vitamin_key
 	 */
@@ -61,20 +88,27 @@ public class Vitamin {
 		this.vitamin_name = vitamin_name;
 		this.vitamin_key = vitamin_key;
 	}
-	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_name) {
+	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_name, String food_1) {
 		this.vitamin_key = vitamin_key;
 		this.vitamin_benefits = vitamin_benefits;
 		this.vitamin_name = vitamin_name;
 		this.vitamin_letter = vitamin_letter;
+		this.food_1 = food_1;
 	}
+	public Vitamin() {
+		// TODO Auto-generated constructor stub
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Vitamin [vitamin_letter=" + vitamin_letter + ", vitamin_name=" + vitamin_name + ", vitamin_key="
-				+ vitamin_key + ", vitamin_benefits=" + vitamin_benefits + "]";
+				+ vitamin_key + ", vitamin_benefits=" + vitamin_benefits + ", food_1=" + food_1 + "]";
 	}
-	
+
 	
 }
