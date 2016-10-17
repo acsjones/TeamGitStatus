@@ -18,7 +18,7 @@ import co.grandcircus.vitamenu.model.Nutrition;
 
 @Service
 public class NutritionService {
-	private final static String key = "07ba45c932a213aceb4d9a96b03fdde3";
+	private final static String key = "5a0556a87cde1bc675b4dc3a0cc3064b";
 	private String q = "" ; 
 	public ArrayList<Nutrition> getCurrentNutritions(String q) {
 		try {
@@ -34,7 +34,7 @@ public class NutritionService {
 		
 			
 			String item = URLEncoder.encode(q , "UTF-8");
-			String url = "https://api.nutritionix.com/v1_1/search/"+ item + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=11efd554&appKey=" + key;
+			String url = "https://api.edamam.com/search?q="+ item + "&app_id=94a09daf&app_key=" + key;
 		
 		try (BufferedReader reader = HttpHelper.doGet(url)) {
 			if (reader == null) {
@@ -49,10 +49,10 @@ public class NutritionService {
 			for (JsonElement jo : nutritions) {
 
 				Nutrition nutrition = new Nutrition();
-				JsonObject fields = jo.getAsJsonObject().get("fields").getAsJsonObject();
-				nutrition.setName(fields.getAsJsonObject().get("item_name").getAsString());
-				nutrition.setCalories(fields.getAsJsonObject().get("nf_calories").getAsString());
-				nutrition.setTotal_fat(fields.getAsJsonObject().get("nf_total_fat").getAsString());
+				JsonObject fields = jo.getAsJsonObject().get("recipe").getAsJsonObject();
+				nutrition.setName(fields.getAsJsonObject().get("label").getAsString());
+				nutrition.setCalories(fields.getAsJsonObject().get("calories").getAsString());
+				nutrition.setTotal_fat(fields.getAsJsonObject().get("totalWeight").getAsString());
 				nutritionList.add(nutrition);
 
 			}
