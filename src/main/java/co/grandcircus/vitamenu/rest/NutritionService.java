@@ -2,6 +2,8 @@ package co.grandcircus.vitamenu.rest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
@@ -17,14 +19,23 @@ import co.grandcircus.vitamenu.model.Nutrition;
 @Service
 public class NutritionService {
 	private final static String key = "07ba45c932a213aceb4d9a96b03fdde3";
-	
-	public ArrayList<Nutrition> getCurrentNutritions() {
-		return getNutritionAt(key);
+	private String q = "" ; 
+	public ArrayList<Nutrition> getCurrentNutritions(String q) {
+		try {
+			return getNutritionAt(key,q);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public ArrayList<Nutrition> getNutritionAt(String key) {
-		String url = "https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=11efd554&appKey=" + key;
-
+	public ArrayList<Nutrition> getNutritionAt(String key , String q) throws UnsupportedEncodingException {
+		
+			
+			String item = URLEncoder.encode(q , "UTF-8");
+			String url = "https://api.nutritionix.com/v1_1/search/"+ item + "?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=11efd554&appKey=" + key;
+		
 		try (BufferedReader reader = HttpHelper.doGet(url)) {
 			if (reader == null) {
 				throw new RuntimeException("Not found: " + url);
@@ -32,16 +43,16 @@ public class NutritionService {
 
 			JsonElement root = new JsonParser().parse(reader);
 			JsonArray nutritions = root.getAsJsonObject().get("hits").getAsJsonArray();
-			
+
 			ArrayList<Nutrition> nutritionList = new ArrayList<Nutrition>();
 
-			for (int i = 0; i < nutritions.size(); i++) {
+			for (JsonElement jo : nutritions) {
 
 				Nutrition nutrition = new Nutrition();
-				JsonElement fields = nutritions.getAsJsonObject().get("fields");
+				JsonObject fields = jo.getAsJsonObject().get("fields").getAsJsonObject();
 				nutrition.setName(fields.getAsJsonObject().get("item_name").getAsString());
-				nutrition.setCalories(nutritions.get(i).getAsJsonObject().get("Cnf_calories").getAsString());
-				nutrition.setTotal_fat(nutritions.get(i).getAsJsonObject().get("Cnf_total_fat").getAsString());
+				nutrition.setCalories(fields.getAsJsonObject().get("nf_calories").getAsString());
+				nutrition.setTotal_fat(fields.getAsJsonObject().get("nf_total_fat").getAsString());
 				nutritionList.add(nutrition);
 
 			}

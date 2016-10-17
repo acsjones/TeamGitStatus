@@ -21,13 +21,7 @@
 <h1>
 	Choose your Vitamin!
 </h1>
-
-
-<table>
-
 	
-		
-	</div>
 	<h1> All the Vitamins Choose your Vitamin!</h1>
 	
 	<table>
@@ -39,6 +33,12 @@
 		</c:forEach>
 	</table>
 
+<form method=get action="<c:url value="/nutrition?search=${search}"/>">
+    <div>
+        <label>Search for food item:</label><input type="text" name="search" value="">
+     </div>
+    <button type="submit">Search</button>
+    </form>
 
 </body>
 

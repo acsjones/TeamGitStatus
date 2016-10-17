@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -32,7 +34,7 @@
 
 			<tr>
 
-				<th>Source</th>
+				<th>Title</th>
 
 
 				<th>Image</th>
@@ -46,10 +48,12 @@
 			<c:forEach var="food" items="${foodList}">
 
 				<tr>
-					<td><a href="<c:url value="${ food.source }"/>"></a></td>
-					<td><img src="${ food.image }" /></td>
+					<td><a href="<c:url value="${ food.source }"/>">${ food.title}</a></td>
 
+		
+					<td> <img src="${ food.image }" /></td>
 
+					
 
 
 
@@ -66,6 +70,5 @@
 
 
 </body>
-
 
 </html>

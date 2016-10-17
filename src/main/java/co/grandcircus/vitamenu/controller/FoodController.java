@@ -25,10 +25,12 @@ public class FoodController {
 	@Autowired
 	private FoodService foodservice;
 
-	@RequestMapping("/food")
+	@RequestMapping("/food")// Looks for the url that ends like /food
+	// It looks for the parameter q and it uses it as the variable q.
         public String home(Locale locale, Model model, @RequestParam("q") String q) throws UnsupportedEncodingException {
+		// q is then passed into the method that returns recipe information from the API and stores it in the variable to be used by the jsp
 		model.addAttribute("foodList", foodservice.getCurrentRecipe(q));
-		logger.info("/food -> recipe-list.jsp");
+		logger.info("/food -> recipe-list.jsp");//choosing the view recipe-list.jsp
 		return "recipe-list";
 
 	}

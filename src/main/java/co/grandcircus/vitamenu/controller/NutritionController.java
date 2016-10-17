@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.grandcircus.vitamenu.rest.NutritionService;
-
+/**
+ * 
+ * @author Pappu
+ *
+ */
 
 @Controller
 public class NutritionController {
@@ -19,12 +23,19 @@ public class NutritionController {
 
 	@Autowired
 	private NutritionService nutritionservice;
-
-	@RequestMapping("/nutrition")
-	public String home(Locale locale, Model model) {
-		model.addAttribute("nutritionList", nutritionservice.getCurrentNutritions());
+/**
+ * 
+ * @param locale
+ * @param model
+ * @param q
+ * @return
+ */
+	
+	@RequestMapping("/nutrition")// Looks for the url that ends like /nutrition
+	public String home(Locale locale, Model model,@RequestParam("search") String q) { // It looks for the parameter search and it uses it as the variable q.
+		model.addAttribute("nutritionList", nutritionservice.getCurrentNutritions(q));// q is then passed into the method that returns nutrition information from the API and stores it in the variable to be used by the jsp
 		logger.info("/nutrition -> nutrition.jsp");
-		return "nutrition";
+		return "nutrition";//choosing the view nurtition.jsp
 	}
 
 }
