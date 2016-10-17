@@ -1,0 +1,26 @@
+	body {
+		background-image: url("https://bellyfajtburningfoodstips.files.wordpress.com/2015/05/fiber-facts.jpg");
+		background-attachment: fixed;
+		font-family: "Impact";
+		padding-top: 140px;
+}
+
+p { 
+color: black;
+text-align: center;
+  		padding-top: 40px;
+ 		padding-right: 40px;
+  		padding-bottom: 40px;
+  		padding-left: 40px;
+  		font-size: 20px;
+  		font-family: "Impact";
+   		background-color: white;
+   		opacity: 0.8;
+    	position: relative;
+    	border-style: dotted;
+    	border-color: #61374b;
+}
+
+div.start_vitamenu {
+text-align: center;
+ }

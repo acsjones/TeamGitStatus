@@ -18,13 +18,14 @@ import co.grandcircus.vitamenu.model.Food;
 
 @Service
 public class FoodService {
-	private final static String key = "00473fda64c043a59213adac4f59f9c2";
+	private final static String key = "5a0556a87cde1bc675b4dc3a0cc3064b";
+	private final static String appid = "94a09daf"; 
 	//private static String q = "";
 	
 
 	public ArrayList<Food> getCurrentRecipe(String q) {
 		try {
-			return getRecipe(key,q);
+			return getRecipe(q,key,appid);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,33 +33,29 @@ public class FoodService {
 		return null;
 	}
 
-	public ArrayList<Food> getRecipe(String key, String q) throws UnsupportedEncodingException {
+	public ArrayList<Food> getRecipe(String q,String key, String appid) throws UnsupportedEncodingException {
 		
 		String item = URLEncoder.encode(q, "UTF-8");
-		String url = "http://food2fork.com/api/search?key=" + key + "&q=" + item;
-		// Use HTTP GET with the above URL
-		try (BufferedReader reader = HttpHelper.doGet(url)) {// try with resources will auto close the reader
+		String url = "https://api.edamam.com/search?q=" + item + "&app_id=" + appid + "&app_key=" + key;
+
+		try (BufferedReader reader = HttpHelper.doGet(url)) {
 			if (reader == null) {
 				throw new RuntimeException("Not found: " + url);
 			}
-			// parse the HTTP response body to JSON
+
 			JsonElement root = new JsonParser().parse(reader);
-			// pick the "recipes" key from the root JSON object.
-			JsonArray foods = root.getAsJsonObject().get("recipes").getAsJsonArray();
+			JsonArray foods = root.getAsJsonObject().get("hits").getAsJsonArray();
 
 			ArrayList<Food> foodList = new ArrayList<Food>();
 
-			for (int i = 0; i < foods.size(); i++) {
+			for (JsonElement something : foods) {
 
 				Food food = new Food();
-				// pick the "title" key from the recipes object
-				food.setTitle(foods.get(i).getAsJsonObject().get("title").getAsString());
-				// pick the "image_url" key from the recipes object
-				food.setImage(foods.get(i).getAsJsonObject().get("image_url").getAsString());
-				// pick the "source_url" key from the recipes object
-				food.setSource(foods.get(i).getAsJsonObject().get("source_url").getAsString());
+				JsonObject recipes = something.getAsJsonObject().get("recipe").getAsJsonObject();
+				food.setTitle(recipes.getAsJsonObject().get("label").getAsString());
+				food.setImage(recipes.getAsJsonObject().get("image").getAsString());
+				food.setSource(recipes.getAsJsonObject().get("url").getAsString());
 				foodList.add(food);
-
 			}
 
 			return foodList;
