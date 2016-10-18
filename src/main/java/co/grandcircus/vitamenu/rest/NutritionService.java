@@ -52,7 +52,9 @@ public class NutritionService {
 				JsonObject fields = jo.getAsJsonObject().get("recipe").getAsJsonObject();
 				nutrition.setName(fields.getAsJsonObject().get("label").getAsString());
 				nutrition.setCalories(fields.getAsJsonObject().get("calories").getAsString());
-				nutrition.setTotal_fat(fields.getAsJsonObject().get("totalWeight").getAsString());
+				JsonObject fields2 = fields.getAsJsonObject().get("totalNutrients").getAsJsonObject();
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITA_RAE").getAsJsonObject();
+				nutrition.setLabel(fields3.getAsJsonObject().get("label").getAsString());
 				nutritionList.add(nutrition);
 
 			}
