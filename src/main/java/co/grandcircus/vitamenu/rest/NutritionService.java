@@ -53,8 +53,14 @@ public class NutritionService {
 				nutrition.setName(fields.getAsJsonObject().get("label").getAsString());
 				nutrition.setCalories(fields.getAsJsonObject().get("calories").getAsString());
 				JsonObject fields2 = fields.getAsJsonObject().get("totalNutrients").getAsJsonObject();
-				JsonObject fields3 = fields2.getAsJsonObject().get("VITA_RAE").getAsJsonObject();
-				nutrition.setLabel(fields3.getAsJsonObject().get("label").getAsString());
+				try {
+					JsonObject fields3 = fields2.getAsJsonObject().get("VITA_RAE").getAsJsonObject();
+					nutrition.setLabel(fields3.getAsJsonObject().get("label").getAsString());
+				} catch (NullPointerException ex) {
+					throw new RuntimeException("blah");
+				}
+				
+				
 				nutritionList.add(nutrition);
 
 			}

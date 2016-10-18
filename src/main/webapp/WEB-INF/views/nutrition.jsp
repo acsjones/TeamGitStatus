@@ -27,7 +27,6 @@
 					<td><c:out value="${ nutrition.name}" /></td>
 					<td><c:out value="${ nutrition.calories}" /></td>
 					<td><c:out value="${ nutrition.label}" /></td>
-
 				</tr>
 			</c:forEach>
 		</tbody>
