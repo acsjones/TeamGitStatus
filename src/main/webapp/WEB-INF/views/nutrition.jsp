@@ -12,21 +12,49 @@
 	</div>
 	<h1>Nutrition</h1>
 
-
+<table>
+	<c:forEach var="vitamin" items="${vitamins}">
+			<tr>
+				<td><a href="<c:url value="/vitamins/${vitamin.vitamin_key}"/>">
+				<c:out value="${ vitamin.vitamin_letter }" /> </a></td>
+	</tr>
+		</c:forEach>
+	</table>
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Calories</th>
-				<th>Total Fat</th>
+				<th>Calories Per Serving</th>
+				<th>Vitamin A</th>
+				<th>Vitamin B1</th>
+				<th>Vitamin B2</th>
+				<th>Vitamin B3</th>
+				<th>Vitamin B6</th>
+				<th>Vitamin B9</th>
+				<th>Vitamin B12</th>
+				<th>Vitamin C</th>
+				<th>Vitamin D</th>
+				<th>Vitamin E</th>
+				<th>Vitamin K</th>
+				
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="nutrition" items="${nutritionList}">
 				<tr>
-					<td><c:out value="${ nutrition.name}" /></td>
-					<td><c:out value="${ nutrition.calories}" /></td>
-					<td><c:out value="${ nutrition.label}" /></td>
+					<td><a href="<c:url value="${nutrition.url}"/>">${ nutrition.name}</a></td>
+					<td>${nutrition.calPerServing}</td>
+					<td><c:out value="${ nutrition.vitA}" /></td>
+					<td><c:out value="${ nutrition.vitB}" /></td>
+					<td><c:out value="${ nutrition.vitB2}" /></td>
+					<td><c:out value="${ nutrition.vitB3}" /></td>
+					<td><c:out value="${ nutrition.vitB6}" /></td>
+					<td><c:out value="${ nutrition.vitB9}" /></td>
+					<td><c:out value="${ nutrition.vitB12}" /></td>
+					<td><c:out value="${ nutrition.vitC}" /></td>
+					<td><c:out value="${ nutrition.vitD}" /></td>
+					<td><c:out value="${ nutrition.vitE}" /></td>
+					<td><c:out value="${ nutrition.vitK}" /></td>
 				</tr>
 			</c:forEach>
 		</tbody>

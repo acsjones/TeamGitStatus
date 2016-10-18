@@ -17,7 +17,7 @@
 <h1>
 Vitamin ${ vitamin.vitamin_letter }
 </h1>
-Also known as ${ vitamin.vitamin_name }
+Also known as ${ vitamin.vitamin_name } 
 <form method="post">
 	<div>
 		<label>${ vitamin.vitamin_benefits }</label><label> Lack of Vitamin ${ vitamin.vitamin_letter } may result in ${ vitamin.vitamin_defiency }.</label>

@@ -51,18 +51,91 @@ public class NutritionService {
 				Nutrition nutrition = new Nutrition();
 				JsonObject fields = jo.getAsJsonObject().get("recipe").getAsJsonObject();
 				nutrition.setName(fields.getAsJsonObject().get("label").getAsString());
-				nutrition.setCalories(fields.getAsJsonObject().get("calories").getAsString());
+				nutrition.setUrl(fields.getAsJsonObject().get("url").getAsString());
+				nutrition.setCalories(fields.getAsJsonObject().get("calories").getAsInt());
+				nutrition.setYield(fields.getAsJsonObject().get("yield").getAsInt());
+				nutrition.setCalPerServing((fields.getAsJsonObject().get("calories").getAsInt()) /(fields.getAsJsonObject().get("yield").getAsInt()));
 				JsonObject fields2 = fields.getAsJsonObject().get("totalNutrients").getAsJsonObject();
 				try {
 					JsonObject fields3 = fields2.getAsJsonObject().get("VITA_RAE").getAsJsonObject();
-					nutrition.setLabel(fields3.getAsJsonObject().get("label").getAsString());
+					nutrition.setVitA(fields3.getAsJsonObject().get("quantity").getAsInt());
 				} catch (NullPointerException ex) {
-					throw new RuntimeException("blah");
+					Integer fields3 = 0;
+					nutrition.setVitA(fields3);
 				}
-				
-				
+			try {
+					JsonObject fields3 = fields2.getAsJsonObject().get("THIA").getAsJsonObject();
+					nutrition.setVitB(fields3.getAsJsonObject().get("quantity").getAsInt());
+				} catch (NullPointerException ex) {
+					Integer fields3 = 0;
+					nutrition.setVitB(fields3);
+				}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("RIBF").getAsJsonObject();
+				nutrition.setVitB2(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitB2(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("NIA").getAsJsonObject();
+				nutrition.setVitB3(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitB3(fields3);
+			}
+		
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITB6A").getAsJsonObject();
+				nutrition.setVitB6(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitB6(fields3);
+			}
+			
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("FOL").getAsJsonObject();
+				nutrition.setVitB9(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitB9(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITB12").getAsJsonObject();
+				nutrition.setVitB12(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitB12(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITC").getAsJsonObject();
+				nutrition.setVitC(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitC(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITD").getAsJsonObject();
+				nutrition.setVitD(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitD(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("TOCPHA").getAsJsonObject();
+				nutrition.setVitE(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitE(fields3);
+			}
+			try {
+				JsonObject fields3 = fields2.getAsJsonObject().get("VITK1").getAsJsonObject();
+				nutrition.setVitK(fields3.getAsJsonObject().get("quantity").getAsInt());
+			} catch (NullPointerException ex) {
+				Integer fields3 = 0;
+				nutrition.setVitK(fields3);
+			}
 				nutritionList.add(nutrition);
-
 			}
 
 			return nutritionList;
