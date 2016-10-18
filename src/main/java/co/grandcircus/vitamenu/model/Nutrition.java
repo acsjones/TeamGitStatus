@@ -6,6 +6,14 @@ public class Nutrition {
 
 	private String name;
 	private int calories;
+	private String unit;
+	public String getUnit() {
+		return unit;
+	}
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
 	private int yield;
 	private int calPerServing;
 	public int getCalPerServing() {

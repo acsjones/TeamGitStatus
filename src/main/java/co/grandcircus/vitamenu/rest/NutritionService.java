@@ -66,6 +66,7 @@ public class NutritionService {
 			try {
 					JsonObject fields3 = fields2.getAsJsonObject().get("THIA").getAsJsonObject();
 					nutrition.setVitB(fields3.getAsJsonObject().get("quantity").getAsInt());
+	
 				} catch (NullPointerException ex) {
 					Integer fields3 = 0;
 					nutrition.setVitB(fields3);

@@ -25,17 +25,17 @@
 			<tr>
 				<th>Name</th>
 				<th>Calories Per Serving</th>
-				<th>Vitamin A</th>
-				<th>Vitamin B1</th>
-				<th>Vitamin B2</th>
-				<th>Vitamin B3</th>
-				<th>Vitamin B6</th>
-				<th>Vitamin B9</th>
-				<th>Vitamin B12</th>
-				<th>Vitamin C</th>
-				<th>Vitamin D</th>
-				<th>Vitamin E</th>
-				<th>Vitamin K</th>
+				<th>Vitamin A(µg)</th>
+				<th>Vitamin B1(mg)</th>
+				<th>Vitamin B2(mg)</th>
+				<th>Vitamin B3(mg)</th>
+				<th>Vitamin B6(mg)</th>
+				<th>Vitamin B9(µg)</th>
+				<th>Vitamin B12(µg)</th>
+				<th>Vitamin C(mg)</th>
+				<th>Vitamin D(µg)</th>
+				<th>Vitamin E(mg)</th>
+				<th>Vitamin K(µg)</th>
 				
 			</tr>
 		</thead>
