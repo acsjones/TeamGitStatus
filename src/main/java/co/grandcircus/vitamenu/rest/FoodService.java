@@ -20,8 +20,6 @@ import co.grandcircus.vitamenu.model.Food;
 public class FoodService {
 	private final static String key = "5a0556a87cde1bc675b4dc3a0cc3064b";
 	private final static String appid = "94a09daf"; 
-	//private static String q = "";
-	
 
 	public ArrayList<Food> getCurrentRecipe(String q) {
 		try {

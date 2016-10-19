@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonArray;
@@ -18,11 +20,17 @@ import co.grandcircus.vitamenu.model.Nutrition;
 
 @Service
 public class NutritionService {
-	private final static String key = "5a0556a87cde1bc675b4dc3a0cc3064b";
+	
+	@Value("${api.key}")
+	private String key;
+	
+	@Value("${api.id}")
+	private String appid;
+	
 	private String q = "" ; 
 	public ArrayList<Nutrition> getCurrentNutritions(String q) {
 		try {
-			return getNutritionAt(key,q);
+			return getNutritionAt(key,appid,q);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,11 +38,11 @@ public class NutritionService {
 		return null;
 	}
 
-	public ArrayList<Nutrition> getNutritionAt(String key , String q) throws UnsupportedEncodingException {
+	public ArrayList<Nutrition> getNutritionAt(String key , String appid, String q) throws UnsupportedEncodingException {
 		
 			
 			String item = URLEncoder.encode(q , "UTF-8");
-			String url = "https://api.edamam.com/search?q="+ item + "&app_id=94a09daf&app_key=" + key;
+			String url = "https://api.edamam.com/search?q="+ item + "&app_id=" + appid + "&app_key=" + key;
 		
 		try (BufferedReader reader = HttpHelper.doGet(url)) {
 			if (reader == null) {
@@ -56,84 +64,107 @@ public class NutritionService {
 				nutrition.setYield(fields.getAsJsonObject().get("yield").getAsInt());
 				nutrition.setCalPerServing((fields.getAsJsonObject().get("calories").getAsInt()) /(fields.getAsJsonObject().get("yield").getAsInt()));
 				JsonObject fields2 = fields.getAsJsonObject().get("totalNutrients").getAsJsonObject();
+				 DecimalFormat df = new DecimalFormat();
 				try {
 					JsonObject fields3 = fields2.getAsJsonObject().get("VITA_RAE").getAsJsonObject();
-					nutrition.setVitA(fields3.getAsJsonObject().get("quantity").getAsInt());
+					double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+					String fields5 = df.format(fields4);
+					nutrition.setVitA(fields5);
 				} catch (NullPointerException ex) {
-					Integer fields3 = 0;
+					String fields3 = "0";
 					nutrition.setVitA(fields3);
 				}
 			try {
 					JsonObject fields3 = fields2.getAsJsonObject().get("THIA").getAsJsonObject();
-					nutrition.setVitB(fields3.getAsJsonObject().get("quantity").getAsInt());
-	
+					double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+					String fields5 = df.format(fields4);
+					nutrition.setVitB(fields5);
 				} catch (NullPointerException ex) {
-					Integer fields3 = 0;
+					String fields3 = "0";
 					nutrition.setVitB(fields3);
 				}
+			
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("RIBF").getAsJsonObject();
-				nutrition.setVitB2(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitB2(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitB2(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("NIA").getAsJsonObject();
-				nutrition.setVitB3(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitB3(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitB3(fields3);
 			}
 		
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("VITB6A").getAsJsonObject();
-				nutrition.setVitB6(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitB6(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitB6(fields3);
 			}
 			
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("FOL").getAsJsonObject();
-				nutrition.setVitB9(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitB9(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitB9(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("VITB12").getAsJsonObject();
-				nutrition.setVitB12(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitB12(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitB12(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("VITC").getAsJsonObject();
-				nutrition.setVitC(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitC(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitC(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("VITD").getAsJsonObject();
-				nutrition.setVitD(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitD(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitD(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("TOCPHA").getAsJsonObject();
-				nutrition.setVitE(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitE(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitE(fields3);
 			}
 			try {
 				JsonObject fields3 = fields2.getAsJsonObject().get("VITK1").getAsJsonObject();
-				nutrition.setVitK(fields3.getAsJsonObject().get("quantity").getAsInt());
+				double fields4 = Math.round(fields3.getAsJsonObject().get("quantity").getAsDouble());
+				String fields5 = df.format(fields4);
+				nutrition.setVitK(fields5);
 			} catch (NullPointerException ex) {
-				Integer fields3 = 0;
+				String fields3 = "0";
 				nutrition.setVitK(fields3);
 			}
 				nutritionList.add(nutrition);

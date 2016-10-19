@@ -24,6 +24,7 @@
 		<thead>
 			<tr>
 				<th>Name</th>
+				<th>Serves</th>
 				<th>Calories Per Serving</th>
 				<th>Vitamin A(µg)</th>
 				<th>Vitamin B1(mg)</th>
@@ -43,6 +44,7 @@
 			<c:forEach var="nutrition" items="${nutritionList}">
 				<tr>
 					<td><a href="<c:url value="${nutrition.url}"/>">${ nutrition.name}</a></td>
+					<td>${nutrition.yield }
 					<td>${nutrition.calPerServing}</td>
 					<td><c:out value="${ nutrition.vitA}" /></td>
 					<td><c:out value="${ nutrition.vitB}" /></td>

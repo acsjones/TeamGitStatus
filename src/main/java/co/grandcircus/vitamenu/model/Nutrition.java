@@ -1,5 +1,7 @@
 package co.grandcircus.vitamenu.model;
 
+import java.text.DecimalFormat;
+
 import com.google.gson.JsonObject;
 
 public class Nutrition {
@@ -23,17 +25,17 @@ public class Nutrition {
 		this.calPerServing = calPerServing;
 	}
 
-	private int vitA;
-	private int vitB;
-	private int vitB2;
-	private int vitB3;
-	private int vitB6;
-	private int vitB9;
-	private int vitB12;
-	private int vitC;
-	private int vitD;
-	private int vitE;
-	private int vitK;
+	private String vitA;
+	private String vitB;
+	private String vitB2;
+	private String vitB3;
+	private String vitB6;
+	private String vitB9;
+	private String vitB12;
+	private String vitC;
+	private String vitD;
+	private String vitE;
+	private String vitK;
 	
 	private String url;
 	public String getUrl() {
@@ -51,60 +53,60 @@ public class Nutrition {
 		this.yield = yield;
 	}
 
-	public int getVitB2() {
+	public String getVitB2() {
 		return vitB2;
 	}
-	public void setVitB2(int vitB2) {
+	public void setVitB2(String vitB2) {
 		this.vitB2 = vitB2;
 	}
-	public int getVitB3() {
+	public String getVitB3() {
 		return vitB3;
 	}
-	public void setVitB3(int vitB3) {
+	public void setVitB3(String vitB3) {
 		this.vitB3 = vitB3;
 	}
 
-	public int getVitB6() {
+	public String getVitB6() {
 		return vitB6;
 	}
-	public void setVitB6(int vitB6) {
+	public void setVitB6(String vitB6) {
 		this.vitB6 = vitB6;
 	}
 
-	public int getVitB9() {
+	public String getVitB9() {
 		return vitB9;
 	}
-	public void setVitB9(int vitB9) {
+	public void setVitB9(String vitB9) {
 		this.vitB9 = vitB9;
 	}
-	public int getVitB12() {
+	public String getVitB12() {
 		return vitB12;
 	}
-	public void setVitB12(int vitB12) {
+	public void setVitB12(String vitB12) {
 		this.vitB12 = vitB12;
 	}
-	public int getVitC() {
+	public String getVitC() {
 		return vitC;
 	}
-	public void setVitC(int vitC) {
+	public void setVitC(String vitC) {
 		this.vitC = vitC;
 	}
-	public int getVitD() {
+	public String getVitD() {
 		return vitD;
 	}
-	public void setVitD(int vitD) {
+	public void setVitD(String vitD) {
 		this.vitD = vitD;
 	}
-	public int getVitE() {
+	public String getVitE() {
 		return vitE;
 	}
-	public void setVitE(int vitE) {
+	public void setVitE(String vitE) {
 		this.vitE = vitE;
 	}
-	public int getVitK() {
+	public String getVitK() {
 		return vitK;
 	}
-	public void setVitK(int vitK) {
+	public void setVitK(String vitK) {
 		this.vitK = vitK;
 	}
 	private String label;
@@ -141,16 +143,22 @@ public class Nutrition {
 	public void setCalories(int calories) {
 		this.calories = calories;
 	}
-	public int getVitA() {
+	public String getVitA() {
 		return vitA;
 	}
-	public void setVitA(int vitA) {
+	public void setVitA(String vitA) {
 		this.vitA = vitA;
 	}
-	public int getVitB() {
+	public String getVitB() {
 		return vitB;
 	}
-	public void setVitB(int vitB) {
+	public void setVitB(String vitB) {
 		this.vitB = vitB;
+	}
+	
+	public String formatNum(double x) {
+		DecimalFormat df = new DecimalFormat();
+		df.setMinimumFractionDigits(0);
+		return df.format(x);
 	}
 }
