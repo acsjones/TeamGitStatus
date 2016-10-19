@@ -5,10 +5,97 @@ import java.text.DecimalFormat;
 import com.google.gson.JsonObject;
 
 public class Nutrition {
+	private String vitB9;
+	private String vitB12;
+	private String vitC;
+	private String vitCPer;
+	private String vitD;
+	private String vitDPer;
+	private String vitE;
+	private String vitEPer;
+	private String vitK;
+	private String vitKPer;
+	private String url;
+	public String getVitCPer() {
+		return vitCPer;
+	}
+	public void setVitCPer(String vitCPer) {
+		this.vitCPer = vitCPer;
+	}
+	public String getVitDPer() {
+		return vitDPer;
+	}
+	public void setVitDPer(String vitDPer) {
+		this.vitDPer = vitDPer;
+	}
+	public String getVitEPer() {
+		return vitEPer;
+	}
+	public void setVitEPer(String vitEPer) {
+		this.vitEPer = vitEPer;
+	}
+	public String getVitKPer() {
+		return vitKPer;
+	}
+	public void setVitKPer(String vitKPer) {
+		this.vitKPer = vitKPer;
+	}
+	public String getVitBPer() {
+		return vitBPer;
+	}
+	public void setVitBPer(String vitBPer) {
+		this.vitBPer = vitBPer;
+	}
+	public String getVitB2Per() {
+		return vitB2Per;
+	}
+	public void setVitB2Per(String vitB2Per) {
+		this.vitB2Per = vitB2Per;
+	}
+	public String getVitB3Per() {
+		return vitB3Per;
+	}
+	public void setVitB3Per(String vitB3Per) {
+		this.vitB3Per = vitB3Per;
+	}
+	public String getVitB6Per() {
+		return vitB6Per;
+	}
+	public void setVitB6Per(String vitB6Per) {
+		this.vitB6Per = vitB6Per;
+	}
+	public String getVitB9Per() {
+		return vitB9Per;
+	}
+	public void setVitB9Per(String vitB9Per) {
+		this.vitB9Per = vitB9Per;
+	}
+	public String getVitB12Per() {
+		return vitB12Per;
+	}
+	public void setVitB12Per(String vitB12Per) {
+		this.vitB12Per = vitB12Per;
+	}
 
+	private String vitA;
+	private String vitB;
+	private String vitB2;
+	private String vitB3;
+	private String vitB6;
+	private String vitAPer;
+	private String vitBPer;
+	private String vitB2Per;
+	private String vitB3Per;
+	private String vitB6Per;
+	private String vitB9Per;
+	private String vitB12Per;
 	private String name;
 	private int calories;
 	private String unit;
+	
+	
+	
+	
 	public String getUnit() {
 		return unit;
 	}
@@ -25,19 +112,15 @@ public class Nutrition {
 		this.calPerServing = calPerServing;
 	}
 
-	private String vitA;
-	private String vitB;
-	private String vitB2;
-	private String vitB3;
-	private String vitB6;
-	private String vitB9;
-	private String vitB12;
-	private String vitC;
-	private String vitD;
-	private String vitE;
-	private String vitK;
+	public String getVitAPer() {
+		return vitAPer;
+	}
 	
-	private String url;
+	public void setVitAPer(String vitAPer) {
+		this.vitAPer = vitAPer;
+	}
+
+	
 	public String getUrl() {
 		return url;
 	}

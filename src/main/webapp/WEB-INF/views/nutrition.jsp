@@ -46,17 +46,17 @@
 					<td><a href="<c:url value="${nutrition.url}"/>">${ nutrition.name}</a></td>
 					<td>${nutrition.yield }
 					<td>${nutrition.calPerServing}</td>
-					<td><c:out value="${ nutrition.vitA}" /></td>
-					<td><c:out value="${ nutrition.vitB}" /></td>
-					<td><c:out value="${ nutrition.vitB2}" /></td>
-					<td><c:out value="${ nutrition.vitB3}" /></td>
-					<td><c:out value="${ nutrition.vitB6}" /></td>
-					<td><c:out value="${ nutrition.vitB9}" /></td>
-					<td><c:out value="${ nutrition.vitB12}" /></td>
-					<td><c:out value="${ nutrition.vitC}" /></td>
-					<td><c:out value="${ nutrition.vitD}" /></td>
-					<td><c:out value="${ nutrition.vitE}" /></td>
-					<td><c:out value="${ nutrition.vitK}" /></td>
+					<td><c:out value="${ nutrition.vitA}" /> (<c:out value="${ nutrition.vitAPer}" />)</td>
+					<td><c:out value="${ nutrition.vitB}" /> (<c:out value="${ nutrition.vitBPer}" />)</td>
+					<td><c:out value="${ nutrition.vitB2}" /> (<c:out value="${ nutrition.vitB2Per}" />)</td>
+					<td><c:out value="${ nutrition.vitB3}" /> (<c:out value="${ nutrition.vitB3Per}" />)</td>
+					<td><c:out value="${ nutrition.vitB6}" /> (<c:out value="${ nutrition.vitB6Per}" />)</td>
+					<td><c:out value="${ nutrition.vitB9}" /> (<c:out value="${ nutrition.vitB9Per}" />)</td>
+					<td><c:out value="${ nutrition.vitB12}" /> (<c:out value="${ nutrition.vitB12Per}" />)</td>
+					<td><c:out value="${ nutrition.vitC}" /> (<c:out value="${ nutrition.vitCPer}" />)</td>
+					<td><c:out value="${ nutrition.vitD}" /> (<c:out value="${ nutrition.vitDPer}" />)</td>
+					<td><c:out value="${ nutrition.vitE}" /> (<c:out value="${ nutrition.vitEPer}" />)</td>
+					<td><c:out value="${ nutrition.vitK}" /> (<c:out value="${ nutrition.vitKPer}" />)</td>
 				</tr>
 			</c:forEach>
 		</tbody>
