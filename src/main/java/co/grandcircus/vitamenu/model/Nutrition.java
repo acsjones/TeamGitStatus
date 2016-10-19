@@ -1,6 +1,6 @@
 package co.grandcircus.vitamenu.model;
 
-import java.text.DecimalFormat;
+
 
 import com.google.gson.JsonObject;
 
@@ -16,6 +16,25 @@ public class Nutrition {
 	private String vitK;
 	private String vitKPer;
 	private String url;
+	private String vitA;
+	private String vitB;
+	private String vitB2;
+	private String vitB3;
+	private String vitB6;
+	private String vitAPer;
+	private String vitBPer;
+	private String vitB2Per;
+	private String vitB3Per;
+	private String vitB6Per;
+	private String vitB9Per;
+	private String vitB12Per;
+	private String name;
+	private int calories;
+	private String unit;
+	private int yield;
+	private int calPerServing;
+	
+	
 	public String getVitCPer() {
 		return vitCPer;
 	}
@@ -76,26 +95,6 @@ public class Nutrition {
 	public void setVitB12Per(String vitB12Per) {
 		this.vitB12Per = vitB12Per;
 	}
-
-	private String vitA;
-	private String vitB;
-	private String vitB2;
-	private String vitB3;
-	private String vitB6;
-	private String vitAPer;
-	private String vitBPer;
-	private String vitB2Per;
-	private String vitB3Per;
-	private String vitB6Per;
-	private String vitB9Per;
-	private String vitB12Per;
-	private String name;
-	private int calories;
-	private String unit;
-	
-	
-	
-	
 	public String getUnit() {
 		return unit;
 	}
@@ -103,8 +102,6 @@ public class Nutrition {
 		this.unit = unit;
 	}
 
-	private int yield;
-	private int calPerServing;
 	public int getCalPerServing() {
 		return calPerServing;
 	}
@@ -120,7 +117,6 @@ public class Nutrition {
 		this.vitAPer = vitAPer;
 	}
 
-	
 	public String getUrl() {
 		return url;
 	}
@@ -238,10 +234,5 @@ public class Nutrition {
 	public void setVitB(String vitB) {
 		this.vitB = vitB;
 	}
-	
-	public String formatNum(double x) {
-		DecimalFormat df = new DecimalFormat();
-		df.setMinimumFractionDigits(0);
-		return df.format(x);
-	}
+
 }

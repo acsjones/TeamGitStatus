@@ -13,7 +13,7 @@
 	<h1>Food</h1>
 
 
-	<table class="table table-striped">
+	<table class="nutrition_table">
 		<thead>
 			<tr>
 				<th>Title</th>
