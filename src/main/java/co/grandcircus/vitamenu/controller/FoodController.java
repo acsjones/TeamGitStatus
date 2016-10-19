@@ -34,5 +34,7 @@ public class FoodController {
 		return "recipe-list";
 
 	}
+	
+	
 
 }

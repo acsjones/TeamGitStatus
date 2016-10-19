@@ -59,4 +59,22 @@ public class VitamenuController {
 		logger.info("GET /vitamins/" + vitamin_key + " -> vitamin.jsp");
 		return "vitamin";
 	}
+	
+	@RequestMapping(value = "/vitamins/add", method = RequestMethod.POST)
+	public String addFood(Model model,@RequestParam(value="vitaminname")String vitaminname,
+			@RequestParam(value="food")String addFood,
+			@RequestParam(value="vitaminkey")Integer key) {
+		Vitamin vitamin = new Vitamin();
+		System.out.println(key);
+		
+		vitaminDao.addFoodItem( vitaminname , addFood );
+		model.addAttribute("vitamin", vitamin);
+		model.asMap().clear();
+		String page = "redirect:/vitamins/";
+		page += key;
+		//logger.info("POST /vitamins/" + vitamin_key + " -> vitamin.jsp");
+		return page;
+	}
+	
+	
 }

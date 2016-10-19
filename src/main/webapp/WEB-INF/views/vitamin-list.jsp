@@ -18,6 +18,7 @@
 	<a href="<c:url value="/"/>">Home</a>
 
 </div>
+
 <h1>
 	Choose your Vitamin!
 </h1>

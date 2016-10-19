@@ -21,6 +21,7 @@
 		<a href="<c:url value="/"/>">Home</a>
 
 	</div>
+	
 
 	<h1>Food</h1>
 

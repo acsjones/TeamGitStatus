@@ -16,6 +16,8 @@ public interface VitaminDao {
 	public List<Vitamin> getAllVitaminsSortedBy(String sort) throws IllegalArgumentException;
 	
 	Vitamin getVitamin(int vitamin_key) throws NotFoundException;
+	
+	public void addFoodItem(String vname , String food);
 
 
 

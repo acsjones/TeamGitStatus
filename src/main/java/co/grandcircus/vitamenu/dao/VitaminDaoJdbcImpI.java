@@ -76,8 +76,10 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 				String food_3 = result.getString("food_3");
 				String food_4 = result.getString("food_4");
 				String food_5 = result.getString("food_5");
+				String food_6 = result.getString("food_6");
+				String food_7 = result.getString("food_7");
 
-				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_defiency, vitamin_name, food_1, food_2, food_3,food_4,food_5);
+				return new Vitamin(vitamin_key, vitamin_letter, vitamin_benefits, vitamin_defiency, vitamin_name, food_1, food_2, food_3,food_4,food_5,food_6,food_7);
 			} else {
 				throw new NotFoundException("No such vitamin.");
 			}
@@ -86,4 +88,35 @@ private static final Logger logger = LoggerFactory.getLogger(VitaminDao.class);
 		}
 	}
 
+	@Override
+	public void addFoodItem(String vname, String food) {
+		Vitamin vitamin = new Vitamin();
+		vitamin.setVitamin_name(vname);
+		vitamin.setFood_6(food);
+		//vitamin.setFood_7(food);
+		System.out.println(vitamin.getVitamin_name());
+		System.out.println(vitamin.getFood_6());
+		//System.out.println(vitamin.getFood_7());
+		String sql = "UPDATE  vitamenu2 SET food_6=? WHERE vitamin_name= ?";
+		try (Connection connection = connectionFactory.getConnection();
+				PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			statement.setString(1,vitamin.getFood_6());
+			//statement.setString(2,vitamin.getFood_7());
+			//statement.setString(2,vitamin.getFood_8());
+			statement.setString(2,vitamin.getVitamin_name());
+		
+			int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated != 1) {
+                throw new NotFoundException("No such mentor");
+                
+               
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+			
+	}
+
+	
 }

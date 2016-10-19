@@ -28,7 +28,20 @@ Also known as ${ vitamin.vitamin_name }
 <label><a href="<c:url value="/food?q=${vitamin.food_3 }"/>">${ vitamin.food_3 }</a></label>
 <label><a href="<c:url value="/food?q=${vitamin.food_4 }"/>">${ vitamin.food_4 }</a></label>
 <label><a href="<c:url value="/food?q=${vitamin.food_5 }"/>">${ vitamin.food_5 }</a></label>
+<label><a href="<c:url value="/food?q=${vitamin.food_6 }"/>">${ vitamin.food_6 }</a></label>
+
 </form>
+
+
+<form method=post action="<c:url value="/vitamins/add"/>">
+    <div>
+        <label>Add food item:</label><input type="text" name="food">
+         <input type = "hidden" name = "vitaminkey" value = "${ vitamin.vitamin_key }">
+        <input type = "hidden" name = "vitaminname" value = "${ vitamin.vitamin_name }"> 
+     </div>
+    <button type="submit">Add</button>
+    </form>
+
 
 </body>
 </html>

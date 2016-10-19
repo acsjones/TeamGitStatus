@@ -28,6 +28,26 @@ public class Vitamin {
 	private String food_3;
 	private String food_4;
 	private String food_5;
+	private String food_6;
+	private String food_7;
+	
+	
+
+	public String getFood_6() {
+		return food_6;
+	}
+
+	public void setFood_6(String food_6) {
+		this.food_6 = food_6;
+	}
+
+	public String getFood_7() {
+		return food_7;
+	}
+
+	public void setFood_7(String food_7) {
+		this.food_7 = food_7;
+	}
 
 	public String getFood_4() {
 		return food_4;
@@ -160,7 +180,7 @@ public class Vitamin {
 	}
 
 	public Vitamin(int vitamin_key, String vitamin_letter, String vitamin_benefits, String vitamin_defiency,
-			String vitamin_name, String food_1, String food_2, String food_3,String food_4,String food_5) {
+			String vitamin_name, String food_1, String food_2, String food_3,String food_4,String food_5,String food_6,String food_7) {
 		this.vitamin_key = vitamin_key;
 		this.vitamin_benefits = vitamin_benefits;
 		this.vitamin_defiency = vitamin_defiency;
@@ -171,6 +191,8 @@ public class Vitamin {
 		this.food_3 = food_3;
 		this.food_4 = food_4;
 		this.food_5 = food_5;
+		this.food_6 = food_6;
+		this.food_7 = food_7;
 	}
 
 	public Vitamin() {
