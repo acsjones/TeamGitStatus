@@ -1,9 +1,11 @@
 	body {
-		background-image: url("https://bellyfatburningfoodstips.files.wordpress.com/2015/05/fiber-facts.jpg");
-		background-attachment: fixed;
-		font-family: "Impact";
-		padding-top: 140px;
+		background-image: url(../resources/pills.jpg);
+		background-size: cover;
+		font-family: "Serif";
+		font-style: oblique;
+		padding-top: 160px;
 		color: white;
+		background-opacity: .6;
 }
 
 p { 
@@ -14,7 +16,7 @@ text-align: center;
   		padding-bottom: 40px;
   		padding-left: 40px;
   		font-size: 20px;
-  		font-family: "Impact";
+  		font-family: "Serif";
    		background-color: white;
    		opacity: 0.8;
     	position: relative;
