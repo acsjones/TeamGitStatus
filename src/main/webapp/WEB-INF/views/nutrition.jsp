@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="parts/head.jsp"%>
+<style>
+     body{
+       background: none !important;
+       background-image:none !important;
+     }
+    </style>
 
 </head>
 <body>

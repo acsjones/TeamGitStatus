@@ -9,9 +9,11 @@
 	left: 0;
 	top: 0;
 	background-image: url(../resources/culinary4.jpg);
+	
 	background-size: cover;
 	overflow-x: hidden; /* Disable horizontal scroll */
 	transition: 0.5s;
+	
 	/* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
@@ -23,19 +25,33 @@
     text-align: center;
 	background-image: url(../resources/perfect.jpg);
 	background-size: cover;
-	font-size: xx-large;
+	font-size: 250%;
 	font-family: "Serif";
    font-style: oblique;
-   font-color: #ffffff;
+   color: #400040;
+  
+   
 }
 
 /* The navigation links inside the overlay */
 .overlay a {
 	padding: 8px;
 	text-decoration: none;
-	font-size: 36px;
+	 
+	font-size: 45px;
 	color: #ffffff;
-	display: block; /* Display block instead of inline */
+	display: inline; /* Display block instead of inline */
+	transition: 0.3s; /* Transition effects on hover (color) */
+	font-family: "Serif";
+	font-style: oblique;
+}
+.overlay p {
+	padding: 8px;
+	text-decoration: none;
+	 
+	font-size: 45px;
+	color: #ffffff;
+	display: inline; /* Display block instead of inline */
 	transition: 0.3s; /* Transition effects on hover (color) */
 	font-family: "Serif";
 	font-style: oblique;
@@ -54,14 +70,20 @@
 	font-size: 60px;
 }
 
+.search{
+	text-align: center;
+	font-size: 40px;
+}
+
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 450px) {blockquote{}
 	.overlay a {
-		font-size: 20px
+		font-size: 20px;
 	}
 	.overlay .closebtn {
-		font-size: 40px;
+		font-size: 45px;
 		top: 15px;
 		right: 35px;
 	}
+	
 }
